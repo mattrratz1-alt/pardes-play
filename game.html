@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game — PARDES Play</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="game-page">
+  <header class="site-header compact">
+    <a href="index.html" class="back-link" data-i18n="game.back">← Home</a>
+    <div class="game-title-wrap">
+      <h1 id="stream-title">Stream</h1>
+      <p id="stream-desc" class="muted"></p>
+    </div>
+    <div class="lang-controls">
+      <label>
+        <span data-i18n="settings.uiLanguage">Interface</span>
+        <select id="ui-lang">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+        </select>
+      </label>
+      <label>
+        <span data-i18n="settings.textLanguage">Study text</span>
+        <select id="text-lang">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+          <option value="both">Both</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main class="container game-container">
+    <div class="stats-bar card">
+      <span><span data-i18n="game.score">Score</span>: <strong id="score">0</strong></span>
+      <span><span data-i18n="game.question">Question</span> <strong id="q-num">1</strong> / <strong id="q-total">10</strong></span>
+      <span class="streak"><span data-i18n="game.streak">Streak</span>: <strong id="streak">0</strong> 🔥</span>
+    </div>
+
+    <article class="prompt-card card" id="prompt-card">
+      <div class="prompt-toolbar">
+        <span class="source" id="source-ref"></span>
+        <div class="inline-lang" role="group" aria-label="Quick text language">
+          <button type="button" class="pill" data-quick-text="en">EN</button>
+          <button type="button" class="pill active" data-quick-text="he">עב</button>
+          <button type="button" class="pill" data-quick-text="both">⇅</button>
+        </div>
+      </div>
+      <div id="prompt-text" class="prompt-text"></div>
+      <div id="choices" class="choices"></div>
+      <p id="feedback" class="feedback" hidden></p>
+      <div class="actions">
+        <button type="button" id="btn-submit" class="btn primary" disabled data-i18n="game.submit">Submit</button>
+        <button type="button" id="btn-next" class="btn secondary" hidden data-i18n="game.next">Next</button>
+      </div>
+    </article>
+
+    <aside class="explain-card card" id="explain-box" hidden>
+      <h3 data-i18n="game.learnMore">Learn more</h3>
+      <div id="explain-text"></div>
+      <a id="sefaria-link" class="sefaria-link" href="#" target="_blank" rel="noopener" hidden data-i18n="game.openSefaria">Open on Sefaria →</a>
+    </aside>
+  </main>
+
+  <div id="game-over" class="modal" hidden>
+    <div class="modal-inner card">
+      <h2 data-i18n="game.complete">Session complete!</h2>
+      <p id="final-score"></p>
+      <a href="index.html" class="btn primary" data-i18n="game.backHome">Back to streams</a>
+      <button type="button" id="btn-replay" class="btn secondary" data-i18n="game.playAgain">Play again</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
