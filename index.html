@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PARDES Play — Learn Torah Through Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🌳</span>
+      <div>
+        <h1 data-i18n="app.title">PARDES Play</h1>
+        <p class="tagline" data-i18n="app.tagline">The orchard of Torah — learn by playing</p>
+      </div>
+    </div>
+    <div class="lang-controls" role="group" aria-label="Language">
+      <label>
+        <span data-i18n="settings.uiLanguage">Interface</span>
+        <select id="ui-lang" aria-label="Interface language">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+        </select>
+      </label>
+      <label>
+        <span data-i18n="settings.textLanguage">Study text</span>
+        <select id="text-lang" aria-label="Study text language">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+          <option value="both">Both</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro card">
+      <h2 data-i18n="home.pardesTitle">PaRDeS — four gates of Torah</h2>
+      <p data-i18n="home.pardesDesc">Peshat (plain), Remez (hints), Drash (homily/law), Sod (inner). Each stream below teaches a different path of learning.</p>
+      <ul class="pardes-legend">
+        <li><span class="badge peshat">פ</span> <span data-i18n="pardes.peshat">Peshat</span></li>
+        <li><span class="badge remez">ר</span> <span data-i18n="pardes.remez">Remez</span></li>
+        <li><span class="badge drash">ד</span> <span data-i18n="pardes.drash">Drash</span></li>
+        <li><span class="badge sod">ס</span> <span data-i18n="pardes.sod">Sod</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title" data-i18n="home.chooseStream">Choose a stream</h2>
+      <div id="stream-grid" class="stream-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p data-i18n="footer.disclaimer">Educational only — not psak halacha. Learn with your rabbi.</p>
+    <p><a href="https://www.sefaria.org" target="_blank" rel="noopener">Sefaria</a> · <span data-i18n="footer.made">Made for GitHub Pages</span></p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
