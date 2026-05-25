@@ -1,0 +1,366 @@
+[
+  {
+    "id": "gem_1",
+    "stream": "gemara",
+    "source": "Berakhot 2a",
+    "sefariaRef": "Berakhot 2a",
+    "prompt": {
+      "en": "In a sugya, a line that challenges the previous statement is usually called a:",
+      "he": "בסוגיא, שורה שמקשה על מה שנאמר קודם נקראת בדרך כלל:"
+    },
+    "choices": {
+      "en": ["Kushya (question)", "Teshuvah (answer)", "Stam (neutral report)", "Siyum (conclusion)"],
+      "he": ["קושיה", "תשובה", "סתם", "סיום"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "A kushya pushes the discussion forward by raising a difficulty.",
+      "he": "קושיה מקדמת את השיחה על ידי העלאת קושי."
+    }
+  },
+  {
+    "id": "gem_2",
+    "stream": "gemara",
+    "source": "Introduction",
+    "prompt": {
+      "en": "The Gemara is primarily a commentary and analysis on which text?",
+      "he": "הגמרא היא בעיקר פירוש וניתוח על איזה טקסט?"
+    },
+    "choices": {
+      "en": ["Mishnah", "Torah (Chumash only)", "Shulchan Aruch", "Zohar"],
+      "he": ["משנה", "תורה (חומש בלבד)", "שולחן ערוך", "זוהר"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Talmud = Mishnah + Gemara (+ later commentaries).",
+      "he": "תלמוד = משנה + גמרא (+ פרשנים מאוחרים)."
+    }
+  },
+  {
+    "id": "tal_1",
+    "stream": "talmud",
+    "source": "Six Orders",
+    "prompt": {
+      "en": "Which seder deals mainly with festivals?",
+      "he": "איזה סדר עוסק בעיקר בחגים?"
+    },
+    "choices": {
+      "en": ["Moed", "Zeraim", "Kodashim", "Tahorot"],
+      "he": ["מועד", "זרעים", "קדשים", "טהרות"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Seder Moed includes Shabbat and the chagim.",
+      "he": "סדר מועד כולל שבת והחגים."
+    }
+  },
+  {
+    "id": "tal_2",
+    "stream": "talmud",
+    "source": "History",
+    "prompt": {
+      "en": "The Mishnah was compiled around 200 CE by:",
+      "he": "המשנה נערכה בסביבות 200 לספירה על ידי:"
+    },
+    "choices": {
+      "en": ["Rabbi Yehudah HaNasi", "Rashi", "Rambam", "The Baal Shem Tov"],
+      "he": ["רבי יהודה הנשיא", "רש\"י", "הרמב\"ם", "הבעל שם טוב"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "He encoded the Oral Torah when transmission was threatened.",
+      "he": "קידד את התורה שבעל פה כשהמסירה הייתה בסכנה."
+    }
+  },
+  {
+    "id": "sa_1",
+    "stream": "shulchan_aruch",
+    "source": "Structure",
+    "prompt": {
+      "en": "Orach Chaim (אורח חיים) mainly covers:",
+      "he": "אורח חיים עוסק בעיקר ב:"
+    },
+    "choices": {
+      "en": ["Daily life, prayer, Shabbat", "Marriage and divorce", "Monetary courts", "Forbidden foods only"],
+      "he": ["חיי יום-יום, תפילה, שבת", "נישואין וגירושין", "דיינים וממון", "איסורי מאכלות בלבד"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "The four sections: OC, YD, EH, CM — OC is 'the path of life.'",
+      "he": "ארבעה חלקים: או\"ח, יו\"ד, אה\"ע, חו\"מ."
+    }
+  },
+  {
+    "id": "sa_2",
+    "stream": "shulchan_aruch",
+    "source": "History",
+    "sefariaRef": "Shulchan Arukh, Orach Chaim 1",
+    "prompt": {
+      "en": "Rabbi Moshe Isserles (Rama) added glosses for which community?",
+      "he": "רבי משה איסרליש (רמ\"א) הוסיף הערות למנהג איזו קהילה?"
+    },
+    "choices": {
+      "en": ["Ashkenazic custom", "Sephardic only", "Babylonian Geonim", "Yemenite"],
+      "he": ["מנהג אשכנז", "ספרדים בלבד", "גאוני בבל", "תימנים"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Karo wrote for Sephardim; Rama is the 'tablecloth' on the set table.",
+      "he": "כרו לספרדים; רמ\"א הוא 'מפה' על השולחן הערוך."
+    }
+  },
+  {
+    "id": "kab_1",
+    "stream": "kabbalah",
+    "source": "Concept",
+    "prompt": {
+      "en": "In Kabbalah, the ten sefirot describe:",
+      "he": "בקבלה, עשר הספירות מתארות:"
+    },
+    "choices": {
+      "en": ["Channels of divine emanation (not separate gods)", "Ten historical kings", "Ten books of Mishnah", "Ten types of grain"],
+      "he": ["צינורות להשתלשלות (לא אלים נפרדים)", "עשרה מלכים", "עשרה ספרי משנה", "עשרה מיני תבואה"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Study with a teacher; games teach concepts, not initiation.",
+      "he": "לומדים עם מורה; המשחק מלמד מושגים, לא 'קבלה' בסוד."
+    }
+  },
+  {
+    "id": "kab_2",
+    "stream": "kabbalah",
+    "source": "PaRDeS",
+    "prompt": {
+      "en": "In PaRDeS, 'Sod' corresponds most closely to:",
+      "he": "בפרד\"ס, 'סוד' מתאים בעיקר ל:"
+    },
+    "choices": {
+      "en": ["Esoteric / mystical layer", "Only literal translation", "Civil damages", "Grammar rules"],
+      "he": ["שכבה מיסטית/פנימית", "תרגום מילולי בלבד", "נזיקין", "דקדוק"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Kabbalah is often associated with sod — the 'secret' dimension.",
+      "he": "קבלה מקושרת לרוב לסוד — ממד הסוד."
+    }
+  },
+  {
+    "id": "chas_1",
+    "stream": "chassidus",
+    "source": "Chassidus",
+    "prompt": {
+      "en": "Chassidus especially emphasizes learning Torah for:",
+      "he": "חסידות מדגישה במיוחד לימוד תורה בשביל:"
+    },
+    "choices": {
+      "en": ["Avodah — service of the heart and daily life", "Replacing halacha", "Abandoning community", "Study without mitzvot"],
+      "he": ["עבודה — עבודת הלב וחיי יום-יום", "ביטול הלכה", "עזיבת ציבור", "לימוד בלי מצוות"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Chassidus internalizes pnimiyus — the inner dimension of Torah.",
+      "he": "חסידות מפנימת את הפנימיות של התורה."
+    }
+  },
+  {
+    "id": "chas_2",
+    "stream": "chassidus",
+    "source": "Joy",
+    "prompt": {
+      "en": "A classic Chassidic theme is that sadness in avodah should be:",
+      "he": "נושא חסידות קלאסי הוא שעצבות בעבודה צריכה להיות:"
+    },
+    "choices": {
+      "en": ["Transformed — serve with joy where possible", "The main goal", "Ignored halacha", "Only for scholars"],
+      "he": ["מתוקנת — לעבוד בשמחה כשאפשר", "המטרה העיקרית", "התעלמות מהלכה", "רק לתלמידי חכמים"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Simcha fuels perseverance in mitzvot and ahavat Yisrael.",
+      "he": "שמחה מזינה התמדה במצוות ואהבת ישראל."
+    }
+  },
+  {
+    "id": "chab_1",
+    "stream": "chabad",
+    "source": "Tanya ch. 1",
+    "sefariaRef": "Tanya, Part I; Likkutei Amarim 1",
+    "prompt": {
+      "en": "The Tanya's 'beinoni' is:",
+      "he": "ה'בינוני' בתניא הוא:"
+    },
+    "choices": {
+      "en": ["One who struggles yet chooses good in action", "A prophet", "Someone who ignores mitzvot", "An angel"],
+      "he": ["מי שנאבק ובוחר טוב במעשה", "נביא", "מי שמתעלם ממצוות", "מלאך"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "The book is 'for beinonim' — the average striving Jew.",
+      "he": "הספר 'למען הבינונים' — היהודי המתמיד הממוצע."
+    }
+  },
+  {
+    "id": "chab_2",
+    "stream": "chabad",
+    "source": "Tanya",
+    "prompt": {
+      "en": "Chabad philosophy is centered on the works of:",
+      "he": "פילוסופיית חב\"ד מתמקדת בחיבור לכתבי:"
+    },
+    "choices": {
+      "en": ["Rabbi Schneur Zalman (Alter Rebbe), especially Tanya", "Rashi only", "Rambam's Guide alone", "Greek philosophy"],
+      "he": ["רבי שניאור זלמן (האדמו\"ר הזקן), בעיקר תניא", "רש\"י בלבד", "מורה נבוכים בלבד", "פילוסופיה יוונית"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Tanya is the 'written law' of Chabad Chassidus.",
+      "he": "תניא היא 'תורה שבכתב' של חסידות חב\"ד."
+    }
+  },
+  {
+    "id": "tan_1",
+    "stream": "tanakh",
+    "source": "Torah structure",
+    "prompt": {
+      "en": "The Five Books of Moses are called:",
+      "he": "חמשת חומשי התורה נקראים:"
+    },
+    "choices": {
+      "en": ["Chumash / Torah", "Gemara", "Shulchan Aruch", "Tanya"],
+      "he": ["חומש / תורה", "גמרא", "שולחן ערוך", "תניא"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Peshat study often begins here with tradition (e.g. Rashi).",
+      "he": "לימוד פשט מתחיל כאן עם המסורת (למשל רש\"י)."
+    }
+  },
+  {
+    "id": "tan_2",
+    "stream": "tanakh",
+    "source": "PaRDeS",
+    "sefariaRef": "Genesis 1:1",
+    "prompt": {
+      "en": "Rashi's question on 'Bereshit' — why begin with Creation — is an example of:",
+      "he": "שאלת רש\"י על 'בראשית' — למה מתחילים בבריאה — היא דוגמה ל:"
+    },
+    "choices": {
+      "en": ["Drash — homiletic / lesson-driven reading", "Only sod", "Ignoring peshat", "Civil law"],
+      "he": ["דרש — קריאה לימודית/מוסרית", "סוד בלבד", "התעלמות מפשט", "דיני ממונות"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Drash derives lessons; it should not contradict essential peshat.",
+      "he": "דרש מגזיר לימודים; לא סותר את הפשט העיקרי."
+    }
+  },
+  {
+    "id": "gem_3",
+    "stream": "gemara",
+    "source": "Machloket",
+    "prompt": {
+      "en": "When Tannaim or Amoraim disagree, we call it:",
+      "he": "כשתנאים או אמוראים חולקים, קוראים לזה:"
+    },
+    "choices": {
+      "en": ["Machloket", "Kashrut", "Berachah", "Hallel"],
+      "he": ["מחלוקת", "כשרות", "ברכה", "הלל"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Respectful dispute is a hallmark of Torah study.",
+      "he": "מחלוקת לשם שמים היא סימן ללימוד תורה."
+    }
+  },
+  {
+    "id": "tal_3",
+    "stream": "talmud",
+    "source": "Nezikin",
+    "prompt": {
+      "en": "Damages and courts are mainly in seder:",
+      "he": "נזיקין ובתי דין נמצאים בעיקר בסדר:"
+    },
+    "choices": {
+      "en": ["Nezikin", "Zeraim", "Moed", "Nashim"],
+      "he": ["נזיקין", "זרעים", "מועד", "נשים"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Bava Kamma, Metzia, Batra — foundational Jewish civil law.",
+      "he": "בבא קמא, מציעא, בתרא — יסוד דיני ממונות."
+    }
+  },
+  {
+    "id": "sa_3",
+    "stream": "shulchan_aruch",
+    "source": "Sections",
+    "prompt": {
+      "en": "Choshen Mishpat deals with:",
+      "he": "חושן משפט עוסק ב:"
+    },
+    "choices": {
+      "en": ["Money, damages, courts", "Kashrut of animals", "Marriage", "Prayer times only"],
+      "he": ["ממון, נזיקין, בתי דין", "כשרות בעלי חיים", "נישואין", "זמני תפילה בלבד"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "The 'breastplate of judgment' — monetary halacha.",
+      "he": "'חושן המשפט' — הלכות ממון."
+    }
+  },
+  {
+    "id": "kab_3",
+    "stream": "kabbalah",
+    "source": "Four Worlds",
+    "prompt": {
+      "en": "The world of Action in Kabbalistic schema is:",
+      "he": "עולם המעשה בסכמת הקבלה הוא:"
+    },
+    "choices": {
+      "en": ["Asiyah", "Atzilut", "Beriah only", "Rambam"],
+      "he": ["עשיה", "אצילות", "בריאה בלבד", "רמב\"ם"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Atzilut, Beriah, Yetzirah, Asiyah — from highest to our world.",
+      "he": "אצילות, בריאה, יצירה, עשיה — מהגבוה לעולמנו."
+    }
+  },
+  {
+    "id": "chas_3",
+    "stream": "chassidus",
+    "source": "Vs Kabbalah",
+    "prompt": {
+      "en": "Compared to classic Kabbalah maps, Chassidus often translates ideas into:",
+      "he": "לעומת מפות קבלה קלאסיות, חסידות מתרגמת מושגים לעיתים ל:"
+    },
+    "choices": {
+      "en": ["Human experience and avodah", "Astrology charts", "Political theory", "Music theory only"],
+      "he": ["חוויה אנושית ועבודה", "מפות אסטרולוגיה", "תיאוריה פוליטית", "תיאוריית מוזיקה בלבד"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "Inner life as allegory for divine processes — with guidance.",
+      "he": "חיי נפש כמשל לתהליכים אלוקיים — עם הדרכה."
+    }
+  },
+  {
+    "id": "chab_3",
+    "stream": "chabad",
+    "source": "Devarim 30:14",
+    "prompt": {
+      "en": "The opening verse of Tanya ('ki karov elecha…') teaches that avodah is:",
+      "he": "פסוק הפתיחה בתניא מלמד שעבודה היא:"
+    },
+    "choices": {
+      "en": ["Very near — in mouth and heart to fulfill", "Only for tzaddikim", "Impossible", "Only theoretical"],
+      "he": ["קרובה מאוד — בפה ובלב לקיים", "רק לצדיקים", "בלתי אפשרית", "תיאוריה בלבד"]
+    },
+    "answerIndex": 0,
+    "explain": {
+      "en": "The beinoni path is accessible.",
+      "he": "דרך הבינוני נגישה."
+    }
+  }
+]
