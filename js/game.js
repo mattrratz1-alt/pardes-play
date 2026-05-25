@@ -11,10 +11,31 @@ const META = {
 };
 
 let pool = [], recent = [], current = null;
+let display = null; // shuffled choices + answerIndex for this screen
 let score = 0, streak = 0, answered = 0, lives = LIVES_MAX;
 let selected = -1, done = false;
 
 const $ = (id) => document.getElementById(id);
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/** Randomize option order; correct index moves with its text */
+function shuffleChoices(q) {
+  const n = q.choices.en.length;
+  const order = shuffleArray(Array.from({ length: n }, (_, i) => i));
+  return {
+    en: order.map((i) => q.choices.en[i]),
+    he: order.map((i) => q.choices.he[i]),
+    answerIndex: order.indexOf(q.answerIndex),
+  };
+}
 
 function pick() {
   if (!pool.length) return null;
@@ -37,11 +58,11 @@ function header() {
   $("stream-desc").textContent = t(`streams.${k}.desc`);
 }
 
-function choiceLabel(q, i) {
+function choiceLabel(i) {
   const loc = getTextLocale();
-  if (loc === "he") return q.choices.he[i];
-  if (loc === "both") return `${q.choices.he[i]} — ${q.choices.en[i]}`;
-  return q.choices.en[i];
+  if (loc === "he") return display.he[i];
+  if (loc === "both") return `${display.he[i]} — ${display.en[i]}`;
+  return display.en[i];
 }
 
 function showQuestion() {
@@ -50,12 +71,13 @@ function showQuestion() {
     $("prompt-text").textContent = "No questions in this stream.";
     return;
   }
+  display = shuffleChoices(current);
   done = false;
   selected = -1;
   $("source-ref").textContent = current.source || "";
   $("prompt-text").innerHTML = renderBilingualHtml(current.prompt);
-  $("choices").innerHTML = current.choices.en.map((_, i) =>
-    `<button type="button" class="choice-btn" data-i="${i}">${choiceLabel(current, i)}</button>`
+  $("choices").innerHTML = display.en.map((_, i) =>
+    `<button type="button" class="choice-btn" data-i="${i}">${choiceLabel(i)}</button>`
   ).join("");
   $("choices").querySelectorAll(".choice-btn").forEach((b) => {
     b.onclick = () => {
@@ -79,12 +101,12 @@ function endSession(msg) {
 }
 
 function submit() {
-  if (selected < 0 || done || !current) return;
+  if (selected < 0 || done || !current || !display) return;
   done = true;
-  const ok = selected === current.answerIndex;
+  const ok = selected === display.answerIndex;
   $("choices").querySelectorAll(".choice-btn").forEach((b, j) => {
     b.disabled = true;
-    if (j === current.answerIndex) b.classList.add("correct");
+    if (j === display.answerIndex) b.classList.add("correct");
     else if (j === selected) b.classList.add("wrong");
   });
   answered++;
@@ -116,6 +138,13 @@ function submit() {
   else setTimeout(() => endSession(t("game.livesOut")), 700);
 }
 
+function refreshChoiceLabels() {
+  if (!display || done) return;
+  $("choices").querySelectorAll(".choice-btn").forEach((b, i) => {
+    b.textContent = choiceLabel(i);
+  });
+}
+
 $("btn-submit").onclick = submit;
 $("btn-next").onclick = () => showQuestion();
 $("btn-replay").onclick = () => location.reload();
@@ -135,10 +164,13 @@ $("btn-end").onclick = () => endSession();
   onLocaleChange(() => {
     refreshI18nDom();
     header();
-    if (!done) showQuestion();
-    else if (current) {
+    if (!done) {
+      $("prompt-text").innerHTML = renderBilingualHtml(current.prompt);
+      refreshChoiceLabels();
+    } else if (current) {
       $("prompt-text").innerHTML = renderBilingualHtml(current.prompt);
       $("explain-text").innerHTML = renderBilingualHtml(current.explain);
+      refreshChoiceLabels();
     }
   });
 })();
