@@ -15,14 +15,8 @@ export async function initI18n() {
 
 export function t(key, vars = {}) {
   let str = uiStrings[uiLocale]?.[key] ?? uiStrings.en[key] ?? key;
-  Object.entries(vars).forEach(([k, v]) => {
-    str = str.replaceAll(`{${k}}`, String(v));
-  });
+  for (const [k, v] of Object.entries(vars)) str = str.replaceAll(`{${k}}`, String(v));
   return str;
-}
-
-export function getUiLocale() {
-  return uiLocale;
 }
 
 export function getTextLocale() {
@@ -35,33 +29,26 @@ export function setUiLocale(code) {
   syncSelectors();
   applyDocumentLocale();
   refreshI18nDom();
-  dispatchChange();
+  fire();
 }
 
 export function setTextLocale(code) {
   textLocale = code;
   localStorage.setItem("textLocale", code);
   syncSelectors();
-  syncQuickPills();
-  dispatchChange();
+  syncPills();
+  fire();
 }
 
-export function pickLocalized(bilingual, field) {
-  const bag = field ? bilingual?.[field] : bilingual;
-  if (!bag || typeof bag !== "object") return "";
-  if (textLocale === "both") return null;
-  return bag[textLocale] ?? bag.en ?? bag.he ?? "";
-}
-
-export function renderBilingualHtml(bilingual) {
-  if (!bilingual) return "";
+export function renderBilingualHtml(obj) {
+  if (!obj) return "";
   if (textLocale === "both") {
-    return `<div class="block-he" lang="he" dir="rtl">${bilingual.he || ""}</div>
-            <div class="block-en" lang="en" dir="ltr">${bilingual.en || ""}</div>`;
+    return `<div class="block-he" lang="he" dir="rtl">${obj.he || ""}</div>
+            <div class="block-en" lang="en">${obj.en || ""}</div>`;
   }
-  const text = bilingual[textLocale] ?? bilingual.en ?? bilingual.he;
-  const isHe = textLocale === "he";
-  return `<div lang="${isHe ? "he" : "en"}" dir="${isHe ? "rtl" : "ltr"}">${text}</div>`;
+  const text = obj[textLocale] ?? obj.en ?? obj.he ?? "";
+  const he = textLocale === "he";
+  return `<div lang="${he ? "he" : "en"}" dir="${he ? "rtl" : "ltr"}">${text}</div>`;
 }
 
 function applyDocumentLocale() {
@@ -69,17 +56,18 @@ function applyDocumentLocale() {
   document.documentElement.dir = uiLocale === "he" ? "rtl" : "ltr";
 }
 
-function dispatchChange() {
-  document.dispatchEvent(
-    new CustomEvent("localechange", { detail: { uiLocale, textLocale } })
-  );
+function fire() {
+  document.dispatchEvent(new CustomEvent("localechange"));
 }
 
-export function refreshI18nDom(root = document) {
-  root.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.dataset.i18n;
-    el.textContent = t(key);
+export function refreshI18nDom() {
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
   });
+}
+
+export function onLocaleChange(fn) {
+  document.addEventListener("localechange", fn);
 }
 
 function bindLangSelectors() {
@@ -87,33 +75,27 @@ function bindLangSelectors() {
   const textSel = document.getElementById("text-lang");
   if (uiSel) {
     uiSel.value = uiLocale;
-    uiSel.addEventListener("change", (e) => setUiLocale(e.target.value));
+    uiSel.onchange = (e) => setUiLocale(e.target.value);
   }
   if (textSel) {
     textSel.value = textLocale;
-    textSel.addEventListener("change", (e) => setTextLocale(e.target.value));
+    textSel.onchange = (e) => setTextLocale(e.target.value);
   }
   document.querySelectorAll("[data-quick-text]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      setTextLocale(btn.dataset.quickText);
-    });
+    btn.onclick = () => setTextLocale(btn.dataset.quickText);
   });
-  syncQuickPills();
+  syncPills();
 }
 
 function syncSelectors() {
-  const uiSel = document.getElementById("ui-lang");
-  const textSel = document.getElementById("text-lang");
-  if (uiSel) uiSel.value = uiLocale;
-  if (textSel) textSel.value = textLocale;
+  const u = document.getElementById("ui-lang");
+  const t = document.getElementById("text-lang");
+  if (u) u.value = uiLocale;
+  if (t) t.value = textLocale;
 }
 
-function syncQuickPills() {
+function syncPills() {
   document.querySelectorAll("[data-quick-text]").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.quickText === textLocale);
   });
-}
-
-export function onLocaleChange(fn) {
-  document.addEventListener("localechange", fn);
 }
